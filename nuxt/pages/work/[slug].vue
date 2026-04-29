@@ -3,7 +3,7 @@ import { findWork, WORKS } from '~/composables/useWorks'
 const route = useRoute()
 const work = computed(() => findWork(String(route.params.slug)))
 if (!work.value) throw createError({ statusCode: 404, statusMessage: 'Case study not found', fatal: true })
-useHead({ title: () => `${work.value!.client} — NE Digital Brand Studio` })
+useHead({ title: () => `${work.value!.client} — Studio Northa` })
 useReveal(); usePixelCursor()
 </script>
 
@@ -21,13 +21,13 @@ useReveal(); usePixelCursor()
       </section>
       <section class="section">
         <div class="container">
-          <div :style="{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '64px' }">
+          <div class="r-cols-2-asym" :style="{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '64px' }">
             <div>
               <div :style="{ display: 'flex', gap: '16px', marginBottom: '16px' }">
                 <span class="mono" :style="{ fontSize: '11px', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '.14em' }">{{ work.tag }}</span>
                 <span class="mono" :style="{ fontSize: '11px', color: 'var(--fg-3)' }">{{ work.year }}</span>
               </div>
-              <h1 :style="{ fontSize: '72px', fontWeight: 700, lineHeight: 1, letterSpacing: '-0.03em', marginBottom: '24px' }">{{ work.client }}</h1>
+              <h1 :style="{ fontSize: 'clamp(40px, 8vw, 72px)', fontWeight: 700, lineHeight: 1, letterSpacing: '-0.03em', marginBottom: '24px' }">{{ work.client }}</h1>
               <p :style="{ fontSize: '20px', color: 'var(--fg-2)', lineHeight: 1.55, maxWidth: '60ch', marginBottom: '40px' }">
                 {{ work.summary }} The brief asked for clarity over cleverness — a system the client could carry forward without us, and a launch that didn't land in a vacuum.
               </p>

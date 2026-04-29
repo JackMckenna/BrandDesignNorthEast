@@ -13,7 +13,7 @@ const quotes = [
         <div class="section-eyebrow"><span class="blk"></span><span>06 / Word of Mouth</span></div>
         <h2 class="section-title">What clients<br />actually said.</h2>
       </div>
-      <div :style="{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }">
+      <div class="r-cols-3" :style="{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }">
         <figure v-for="(q, i) in quotes" :key="i" class="reveal" :style="{
           border: '1px solid var(--line)', background: 'var(--bg)', padding: '32px', position: 'relative',
         }">

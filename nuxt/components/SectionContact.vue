@@ -3,7 +3,7 @@ import { reactive, ref } from 'vue'
 
 const props = defineProps<{ embedded?: boolean }>()
 
-const form = reactive({ name: '', email: '', company: '', budget: '3-8k', services: [] as string[], message: '' })
+const form = reactive({ name: '', email: '', company: '', services: [] as string[], message: '' })
 const errors = ref<Record<string, string>>({})
 const sent = ref(false)
 const svcs = ['Web Dev', 'Web Design', 'Branding', 'Social', 'Logo', 'SEO', 'Content']
@@ -23,7 +23,7 @@ const toggleSvc = (s: string) => {
   if (idx === -1) form.services.push(s); else form.services.splice(idx, 1)
 }
 const reset = () => {
-  Object.assign(form, { name:'', email:'', company:'', budget:'3-8k', services:[], message:'' })
+  Object.assign(form, { name:'', email:'', company:'', services:[], message:'' })
   sent.value = false
 }
 </script>
@@ -31,7 +31,7 @@ const reset = () => {
 <template>
   <section id="contact" class="section" :style="{ borderTop: embedded ? 'none' : '1px solid var(--line)' }">
     <div class="container">
-      <div :style="{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '80px' }">
+      <div class="r-cols-2-asym" :style="{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '80px' }">
         <div class="reveal">
           <div class="section-eyebrow"><span class="blk"></span><span>07 / Contact</span></div>
           <h2 class="section-title">Let's start<br />a project.</h2>
@@ -52,7 +52,7 @@ const reset = () => {
           </div>
         </div>
 
-        <form @submit="submit" class="reveal pxcorners" :style="{ border: '1px solid var(--line)', background: 'var(--bg-2)', padding: '40px', position: 'relative' }">
+        <form @submit="submit" class="reveal pxcorners form-card" :style="{ border: '1px solid var(--line)', background: 'var(--bg-2)', padding: '40px', position: 'relative' }">
           <span class="pc tl"></span><span class="pc tr"></span><span class="pc bl"></span><span class="pc br"></span>
           <div v-if="sent" :style="{ minHeight: '540px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', gap: '20px' }">
             <div :style="{ fontFamily: `'Press Start 2P', monospace`, fontSize: '28px', color: 'var(--accent)', letterSpacing: 0 }">✓ TRANSMITTED</div>
@@ -62,7 +62,7 @@ const reset = () => {
             <button type="button" class="pxbtn" data-hov @click="reset">Send another →</button>
           </div>
           <div v-else :style="{ display: 'flex', flexDirection: 'column', gap: '20px' }">
-            <div :style="{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }">
+            <div class="r-cols-2" :style="{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }">
               <div>
                 <label class="field-label">Name <span v-if="errors.name" :style="{ color: 'var(--magenta)' }">{{ errors.name }}</span></label>
                 <input v-model="form.name" data-hov :class="['field', errors.name ? 'error' : '']" />
@@ -75,20 +75,6 @@ const reset = () => {
             <div>
               <label class="field-label">Company / project</label>
               <input v-model="form.company" data-hov class="field" />
-            </div>
-            <div>
-              <label class="field-label">Budget</label>
-              <div :style="{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', border: '1px solid var(--line)' }">
-                <button v-for="b in ['<3k', '3-8k', '8-15k', '15k+']" :key="b" type="button" data-hov class="mono"
-                  @click="form.budget = b"
-                  :style="{
-                    all: 'unset', cursor: 'pointer', padding: '12px 0', textAlign: 'center',
-                    fontSize: '12px', letterSpacing: '.06em', textTransform: 'uppercase',
-                    background: form.budget === b ? 'var(--accent)' : 'transparent',
-                    color: form.budget === b ? 'var(--bg)' : 'var(--fg-2)',
-                    borderRight: '1px solid var(--line)',
-                  }">{{ b }}</button>
-              </div>
             </div>
             <div>
               <label class="field-label">Services <span v-if="errors.services" :style="{ color: 'var(--magenta)' }">{{ errors.services }}</span></label>

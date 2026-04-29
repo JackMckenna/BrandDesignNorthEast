@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{ error: { statusCode: number; statusMessage?: string } }>()
 useReveal(); usePixelCursor()
-useHead({ title: '404 — NE Digital Brand Studio' })
+useHead({ title: '404 — Studio Northa' })
 </script>
 
 <template>

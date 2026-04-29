@@ -68,9 +68,9 @@ onBeforeUnmount(() => cleanup && cleanup())
 </script>
 
 <template>
-  <div class="scanlines" :style="{ position: 'relative', overflow: 'hidden', minHeight: '760px' }">
+  <div class="scanlines hero-shell" :style="{ position: 'relative', overflow: 'hidden', minHeight: '760px' }">
     <canvas ref="canvas" :style="{ position: 'absolute', inset: 0, width: '100%', height: '100%' }"></canvas>
-    <div class="container" :style="{ paddingTop: '140px', paddingBottom: '140px', position: 'relative', zIndex: 2 }">
+    <div class="container hero-inner" :style="{ paddingTop: '140px', paddingBottom: '140px', position: 'relative', zIndex: 2 }">
       <div :style="{ maxWidth: '920px' }">
         <div :style="{ display: 'flex', gap: '12px', alignItems: 'center', marginBottom: '32px' }">
           <span :style="{ width: '8px', height: '8px', background: 'var(--accent)' }"></span>
@@ -86,7 +86,7 @@ onBeforeUnmount(() => cleanup && cleanup())
           </span>
         </h1>
         <p :style="{ fontSize: '20px', color: 'var(--fg-2)', lineHeight: 1.5, maxWidth: '54ch', marginBottom: '40px', fontWeight: 300 }">
-          Three-person digital brand studio working out of the North East. Web, identity, and social — the things modern brands actually run on, run by people who actually run them.
+          Digital brand studio working out of the North East. Web, identity, and social — the things modern brands actually run on, run by people who actually run them.
         </p>
         <div :style="{ display: 'flex', gap: '14px', flexWrap: 'wrap' }">
           <NuxtLink to="/contact" class="pxbtn primary" data-hov>Start a project →</NuxtLink>

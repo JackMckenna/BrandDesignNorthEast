@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { WORKS } from '~/composables/useWorks'
-const props = defineProps<{ limit?: number; showHeader?: boolean }>()
+const props = withDefaults(defineProps<{ limit?: number; showHeader?: boolean }>(), {
+  showHeader: true,
+})
 const items = computed(() => props.limit ? WORKS.slice(0, props.limit) : WORKS)
 </script>
 
 <template>
   <section id="work" class="section" :style="{ borderTop: '1px solid var(--line)', background: 'var(--bg-2)' }">
     <div class="container">
-      <div v-if="showHeader !== false" class="reveal" :style="{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '24px', marginBottom: '56px' }">
+      <div v-if="showHeader" class="reveal" :style="{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '24px', marginBottom: '56px' }">
         <div>
           <div class="section-eyebrow"><span class="blk"></span><span>02 / Recent Work</span></div>
           <h2 class="section-title">Recent work.</h2>
@@ -17,7 +19,7 @@ const items = computed(() => props.limit ? WORKS.slice(0, props.limit) : WORKS)
         </NuxtLink>
       </div>
 
-      <div :style="{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }">
+      <div class="r-cols-3" :style="{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }">
         <NuxtLink v-for="(w, i) in items" :key="w.id" :to="`/work/${w.id}`" data-hov class="reveal"
           @mouseenter="(e) => ((e.currentTarget as HTMLElement).style.borderColor = 'var(--accent)')"
           @mouseleave="(e) => ((e.currentTarget as HTMLElement).style.borderColor = 'var(--line)')"

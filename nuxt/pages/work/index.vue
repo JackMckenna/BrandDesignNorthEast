@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useReveal(); usePixelCursor()
-useHead({ title: 'Work — NE Digital Brand Studio' })
+useHead({ title: 'Work — Studio Northa' })
 </script>
 
 <template>

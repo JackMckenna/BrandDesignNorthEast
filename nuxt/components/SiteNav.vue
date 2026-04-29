@@ -9,7 +9,7 @@ const links = [
   { to: '/work', label: 'Work' },
   { to: '/services', label: 'Services' },
   { to: '/#process', label: 'Process' },
-  { to: '/#pricing', label: 'Pricing' },
+  { to: '/#packages', label: 'Packages' },
 ]
 </script>
 
@@ -28,11 +28,11 @@ const links = [
             :style="{ width: '6px', height: '6px', background: c===1 ? 'var(--accent)' : c===2 ? 'var(--fg)' : 'transparent' }"></span>
         </span>
         <span class="mono" :style="{ fontSize: '13px', letterSpacing: '.04em', fontWeight: 500 }">
-          NE / DIGITAL <span :style="{ color: 'var(--fg-3)' }">brand_studio</span>
+          STUDIO / NORTHA <span :style="{ color: 'var(--fg-3)' }">brand_studio</span>
         </span>
       </NuxtLink>
-      <div :style="{ display: 'flex', gap: '32px', alignItems: 'center' }">
-        <NuxtLink v-for="l in links" :key="l.to" :to="l.to" data-hov class="mono" :style="{
+      <div class="nav-links" :style="{ display: 'flex', gap: '32px', alignItems: 'center' }">
+        <NuxtLink v-for="l in links" :key="l.to" :to="l.to" data-hov class="mono nav-link" :style="{
           color: 'var(--fg-2)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '.14em',
         }">{{ l.label }}</NuxtLink>
         <NuxtLink to="/contact" class="pxbtn primary" data-hov :style="{ padding: '10px 18px' }">Get a quote</NuxtLink>

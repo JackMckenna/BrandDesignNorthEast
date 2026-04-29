@@ -156,5 +156,54 @@ button { font-family: inherit; }
 }
 .modal-overlay.open .modal-card { transform: translateY(0) scale(1); }
 
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s, transform .6s; }
-.reveal.in { opacity: 1; transform: translateY(0); }
+.reveal { transition: opacity .6s, transform .6s; }
+html.js-reveal .reveal { opacity: 0; transform: translateY(20px); }
+html.js-reveal .reveal.in { opacity: 1; transform: translateY(0); }
+
+/* ============ Responsive ============
+   Breakpoints: lg ≤1024 (small laptop), md ≤960 (tablet),
+   sm ≤640 (mobile), xs ≤480 (narrow phone).
+   Most layout columns are set inline on elements via :style;
+   the .r-cols-* classes only apply at the breakpoint and use
+   !important to defeat the inline grid-template-columns. */
+
+@media (max-width: 1024px) {
+  .r-cols-4 { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+@media (max-width: 960px) {
+  .r-cols-3        { grid-template-columns: repeat(2, 1fr) !important; }
+  .r-cols-2-asym   { grid-template-columns: 1fr !important; gap: 48px !important; }
+  .r-cols-footer   { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+  .nav-links       { gap: 18px !important; }
+}
+
+@media (max-width: 720px) {
+  .section         { padding: 72px 0; }
+  .section-sub     { margin-bottom: 48px; font-size: 16px; }
+  .hero-shell      { min-height: 560px !important; }
+  .hero-inner      { padding-top: 96px !important; padding-bottom: 96px !important; }
+  .nav-links .nav-link { display: none !important; }
+  .nav-links       { gap: 12px !important; }
+}
+
+@media (max-width: 640px) {
+  .r-cols-3, .r-cols-4, .r-cols-2 { grid-template-columns: 1fr !important; }
+  .r-cols-footer   { grid-template-columns: 1fr !important; }
+  .r-cols-budget   { grid-template-columns: repeat(2, 1fr) !important; }
+  .form-card       { padding: 24px !important; }
+  .tile-tall       { min-height: auto !important; }
+}
+
+@media (max-width: 480px) {
+  .container       { padding: 0 20px; }
+  .section         { padding: 56px 0; }
+  .modal-overlay   { padding: 16px; }
+  .pxbtn           { padding: 12px 18px; font-size: 11px; }
+}
+
+/* Touch devices: the pixel cursor is desktop-only fluff. */
+@media (hover: none) and (pointer: coarse) {
+  .px-cursor { display: none !important; }
+  body { cursor: auto; }
+}

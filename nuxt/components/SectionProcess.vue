@@ -15,8 +15,8 @@ const steps = [
         <h2 class="section-title">A four-step loop.</h2>
         <p class="section-sub">We avoid the 12-week discovery pageant. Most engagements run six to ten weeks, end-to-end.</p>
       </div>
-      <div :style="{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderLeft: '1px solid var(--line)', borderTop: '1px solid var(--line)' }">
-        <div v-for="(s, i) in steps" :key="s.n" class="reveal" :style="{
+      <div class="r-cols-4" :style="{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderLeft: '1px solid var(--line)', borderTop: '1px solid var(--line)' }">
+        <div v-for="(s, i) in steps" :key="s.n" class="reveal tile-tall" :style="{
           padding: '40px 32px', borderRight: '1px solid var(--line)', borderBottom: '1px solid var(--line)',
           minHeight: '320px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
         }">
