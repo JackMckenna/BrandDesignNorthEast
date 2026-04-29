@@ -19,7 +19,7 @@ const services = [
         <h2 class="section-title">Eight things,<br />done in-house.</h2>
         <p class="section-sub">No reselling, no white-label middlemen. The three of us cover what most brands actually need — and we bring in trusted collaborators when it goes beyond that.</p>
       </div>
-      <div :style="{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderTop: '1px solid var(--line)', borderLeft: '1px solid var(--line)' }">
+      <div class="r-cols-4" :style="{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderTop: '1px solid var(--line)', borderLeft: '1px solid var(--line)' }">
         <div v-for="s in services" :key="s.code" class="reveal" data-hov
           @mouseenter="(e) => ((e.currentTarget as HTMLElement).style.background = 'var(--bg-2)')"
           @mouseleave="(e) => ((e.currentTarget as HTMLElement).style.background = 'var(--bg)')"

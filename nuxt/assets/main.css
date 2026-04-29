@@ -185,6 +185,7 @@ html.js-reveal .reveal.in { opacity: 1; transform: translateY(0); }
   .hero-inner      { padding-top: 96px !important; padding-bottom: 96px !important; }
   .nav-links .nav-link { display: none !important; }
   .nav-links       { gap: 12px !important; }
+  .r-cols-4        { grid-template-columns: 1fr !important; }
 }
 
 @media (max-width: 640px) {
