@@ -5,7 +5,7 @@
     <div class="container">
       <div :style="{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr 1fr', gap: '48px', marginBottom: '64px' }">
         <div>
-          <div :style="{ fontFamily: \"'Press Start 2P', monospace\", fontSize: '28px', letterSpacing: 0, marginBottom: '20px' }">
+          <div :style="{ fontFamily: `'Press Start 2P', monospace`, fontSize: '28px', letterSpacing: 0, marginBottom: '20px' }">
             <span :style="{ color: 'var(--accent)' }">NE</span> /
           </div>
           <p :style="{ fontSize: '14px', color: 'var(--fg-2)', lineHeight: 1.55, maxWidth: '36ch' }">

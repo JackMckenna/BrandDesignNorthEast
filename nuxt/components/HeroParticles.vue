@@ -81,7 +81,7 @@ onBeforeUnmount(() => cleanup && cleanup())
         <h1 :style="{ fontSize: 'clamp(64px, 9vw, 144px)', fontWeight: 800, lineHeight: 0.9, letterSpacing: '-0.045em', marginBottom: '40px' }">
           A studio<br />
           built for <span :style="{ color: 'var(--accent)' }">signal</span>.<br />
-          <span :style="{ fontFamily: \"'Press Start 2P', monospace\", fontSize: '0.36em', letterSpacing: 0, color: 'var(--fg-2)' }">
+          <span :style="{ fontFamily: `'Press Start 2P', monospace`, fontSize: '0.36em', letterSpacing: 0, color: 'var(--fg-2)' }">
             Not noise.
           </span>
         </h1>

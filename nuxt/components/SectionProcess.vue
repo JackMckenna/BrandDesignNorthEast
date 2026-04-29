@@ -20,7 +20,7 @@ const steps = [
           padding: '40px 32px', borderRight: '1px solid var(--line)', borderBottom: '1px solid var(--line)',
           minHeight: '320px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
         }">
-          <div :style="{ fontFamily: \"'Press Start 2P', monospace\", fontSize: '28px', color: 'var(--accent)', letterSpacing: 0, marginBottom: '24px' }">{{ s.n }}</div>
+          <div :style="{ fontFamily: `'Press Start 2P', monospace`, fontSize: '28px', color: 'var(--accent)', letterSpacing: 0, marginBottom: '24px' }">{{ s.n }}</div>
           <div :style="{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px' }">
             <span v-for="j in 8" :key="j" :style="{ width: '6px', height: '6px', background: (j-1) <= i*2 + 1 ? 'var(--accent)' : 'var(--line-2)' }"></span>
           </div>

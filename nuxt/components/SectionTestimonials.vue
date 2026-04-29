@@ -17,7 +17,7 @@ const quotes = [
         <figure v-for="(q, i) in quotes" :key="i" class="reveal" :style="{
           border: '1px solid var(--line)', background: 'var(--bg)', padding: '32px', position: 'relative',
         }">
-          <div :style="{ fontFamily: \"'Press Start 2P', monospace\", color: 'var(--accent)', fontSize: '24px', letterSpacing: 0, marginBottom: '16px' }">"</div>
+          <div :style="{ fontFamily: `'Press Start 2P', monospace`, color: 'var(--accent)', fontSize: '24px', letterSpacing: 0, marginBottom: '16px' }">"</div>
           <blockquote :style="{ fontSize: '18px', lineHeight: 1.5, color: 'var(--fg)', marginBottom: '24px', fontWeight: 300 }">{{ q.q }}</blockquote>
           <figcaption :style="{ borderTop: '1px solid var(--line)', paddingTop: '16px', display: 'flex', justifyContent: 'space-between' }">
             <div>

@@ -9,7 +9,7 @@ useHead({ title: '404 — NE Digital Brand Studio' })
     <SiteNav />
     <main :style="{ paddingTop: '72px', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }">
       <div class="container" :style="{ textAlign: 'center', padding: '120px 32px' }">
-        <div :style="{ fontFamily: \"'Press Start 2P', monospace\", fontSize: 'clamp(80px, 14vw, 200px)', color: 'var(--accent)', letterSpacing: 0, lineHeight: 1, marginBottom: '32px' }">
+        <div :style="{ fontFamily: `'Press Start 2P', monospace`, fontSize: 'clamp(80px, 14vw, 200px)', color: 'var(--accent)', letterSpacing: 0, lineHeight: 1, marginBottom: '32px' }">
           {{ error.statusCode || 404 }}
         </div>
         <h1 :style="{ fontSize: '40px', fontWeight: 700, letterSpacing: '-0.03em', marginBottom: '16px' }">Signal lost.</h1>

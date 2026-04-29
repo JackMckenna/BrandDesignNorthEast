@@ -55,7 +55,7 @@ const reset = () => {
         <form @submit="submit" class="reveal pxcorners" :style="{ border: '1px solid var(--line)', background: 'var(--bg-2)', padding: '40px', position: 'relative' }">
           <span class="pc tl"></span><span class="pc tr"></span><span class="pc bl"></span><span class="pc br"></span>
           <div v-if="sent" :style="{ minHeight: '540px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', gap: '20px' }">
-            <div :style="{ fontFamily: \"'Press Start 2P', monospace\", fontSize: '28px', color: 'var(--accent)', letterSpacing: 0 }">✓ TRANSMITTED</div>
+            <div :style="{ fontFamily: `'Press Start 2P', monospace`, fontSize: '28px', color: 'var(--accent)', letterSpacing: 0 }">✓ TRANSMITTED</div>
             <p :style="{ fontSize: '18px', color: 'var(--fg)', lineHeight: 1.5, maxWidth: '40ch' }">
               Got it, {{ form.name.split(' ')[0] }}. We'll come back to you at <span :style="{ color: 'var(--accent)' }">{{ form.email }}</span> inside one business day.
             </p>
@@ -106,7 +106,7 @@ const reset = () => {
             </div>
             <div>
               <label class="field-label">Tell us about it <span v-if="errors.message" :style="{ color: 'var(--magenta)' }">{{ errors.message }}</span></label>
-              <textarea v-model="form.message" data-hov rows="5" :class="['field', errors.message ? 'error' : '']" :style="{ resize: 'vertical', fontFamily: \"'JetBrains Mono', monospace\" }"></textarea>
+              <textarea v-model="form.message" data-hov rows="5" :class="['field', errors.message ? 'error' : '']" :style="{ resize: 'vertical', fontFamily: `'JetBrains Mono', monospace` }"></textarea>
             </div>
             <div :style="{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '8px' }">
               <span class="mono" :style="{ fontSize: '11px', color: 'var(--fg-3)', textTransform: 'uppercase', letterSpacing: '.12em' }">Encrypted in transit ▸</span>

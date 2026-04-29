@@ -32,7 +32,7 @@ const items = computed(() => props.limit ? WORKS.slice(0, props.limit) : WORKS)
             }"></div>
             <div :style="{
               position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontFamily: \"'Press Start 2P', monospace\", fontSize: '14px', color: 'rgba(255,255,255,0.94)',
+              fontFamily: `'Press Start 2P', monospace`, fontSize: '14px', color: 'rgba(255,255,255,0.94)',
               textShadow: '2px 2px 0 rgba(0,0,0,0.6)', letterSpacing: 0,
             }">{{ String(i+1).padStart(2,'0') }}</div>
           </div>
