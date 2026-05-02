@@ -3,6 +3,8 @@ import { WORKS } from '~/composables/useWorks'
 const props = withDefaults(defineProps<{ limit?: number; showHeader?: boolean }>(), {
   showHeader: true,
 })
+const config = useRuntimeConfig()
+const withBase = (p?: string) => (p ? `${config.app.baseURL.replace(/\/$/, '')}/${p.replace(/^\//, '')}` : '')
 const items = computed(() => props.limit ? WORKS.slice(0, props.limit) : WORKS)
 </script>
 
@@ -27,16 +29,22 @@ const items = computed(() => props.limit ? WORKS.slice(0, props.limit) : WORKS)
             display: 'block', border: '1px solid var(--line)', background: 'var(--bg)',
             position: 'relative', transition: 'border-color .15s', color: 'inherit',
           }">
-          <div :style="{ aspectRatio: '4/3', display: 'grid', gridTemplateRows: '1fr 1fr 1fr', position: 'relative', overflow: 'hidden' }">
-            <div v-for="(c, j) in w.stripes" :key="j" :style="{
-              background: c,
-              backgroundImage: 'repeating-linear-gradient(45deg, rgba(0,0,0,0.05) 0 2px, transparent 2px 6px)',
-            }"></div>
-            <div :style="{
-              position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontFamily: `'Press Start 2P', monospace`, fontSize: '14px', color: 'rgba(255,255,255,0.94)',
-              textShadow: '2px 2px 0 rgba(0,0,0,0.6)', letterSpacing: 0,
-            }">{{ String(i+1).padStart(2,'0') }}</div>
+          <div :style="{ aspectRatio: '4/3', position: 'relative', overflow: 'hidden', background: 'var(--bg-2)' }">
+            <img v-if="w.image" :src="withBase(w.image)" :alt="w.client" loading="lazy"
+              :style="{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }" />
+            <template v-else>
+              <div :style="{ position: 'absolute', inset: 0, display: 'grid', gridTemplateRows: '1fr 1fr 1fr' }">
+                <div v-for="(c, j) in w.stripes" :key="j" :style="{
+                  background: c,
+                  backgroundImage: 'repeating-linear-gradient(45deg, rgba(0,0,0,0.05) 0 2px, transparent 2px 6px)',
+                }"></div>
+              </div>
+              <div :style="{
+                position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontFamily: `'Press Start 2P', monospace`, fontSize: '14px', color: 'rgba(255,255,255,0.94)',
+                textShadow: '2px 2px 0 rgba(0,0,0,0.6)', letterSpacing: 0,
+              }">{{ String(i+1).padStart(2,'0') }}</div>
+            </template>
           </div>
           <div :style="{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '8px' }">
             <div :style="{ display: 'flex', justifyContent: 'space-between' }">

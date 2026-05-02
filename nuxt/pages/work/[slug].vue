@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { findWork, WORKS } from '~/composables/useWorks'
+import { findWork } from '~/composables/useWorks'
 const route = useRoute()
 const work = computed(() => findWork(String(route.params.slug)))
 if (!work.value) throw createError({ statusCode: 404, statusMessage: 'Case study not found', fatal: true })
 useHead({ title: () => `${work.value!.client} — Studio Northa` })
 useReveal(); usePixelCursor()
+const config = useRuntimeConfig()
+const withBase = (p?: string) => (p ? `${config.app.baseURL.replace(/\/$/, '')}/${p.replace(/^\//, '')}` : '')
 </script>
 
 <template>
@@ -12,11 +14,15 @@ useReveal(); usePixelCursor()
     <SiteNav />
     <main :style="{ paddingTop: '72px' }">
       <section :style="{ borderBottom: '1px solid var(--line)' }">
-        <div :style="{ aspectRatio: '16 / 6', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr' }">
-          <div v-for="(c, j) in work.stripes" :key="j" :style="{
-            background: c,
-            backgroundImage: 'repeating-linear-gradient(45deg, rgba(0,0,0,0.06) 0 3px, transparent 3px 8px)',
-          }"></div>
+        <div :style="{ aspectRatio: '16 / 6', position: 'relative', overflow: 'hidden', background: 'var(--bg-2)' }">
+          <img v-if="work.image" :src="withBase(work.image)" :alt="work.client"
+            :style="{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }" />
+          <div v-else :style="{ position: 'absolute', inset: 0, display: 'grid', gridTemplateColumns: '1fr 1fr 1fr' }">
+            <div v-for="(c, j) in work.stripes" :key="j" :style="{
+              background: c,
+              backgroundImage: 'repeating-linear-gradient(45deg, rgba(0,0,0,0.06) 0 3px, transparent 3px 8px)',
+            }"></div>
+          </div>
         </div>
       </section>
       <section class="section">
@@ -34,7 +40,7 @@ useReveal(); usePixelCursor()
               <NuxtLink to="/work" class="pxbtn" data-hov>← Back to archive</NuxtLink>
             </div>
             <aside>
-              <div v-for="(row, i) in [['Engagement', '6 weeks'], ['Deliverables', '14 assets'], ['Outcome', '+38% conv.']]" :key="i"
+              <div v-for="(row, i) in [['Engagement', work.engagement || '6 weeks'], ['Deliverables', work.deliverables || '14 assets'], ['Outcome', work.outcome || '+38% conv.']]" :key="i"
                 :style="{ borderTop: '1px solid var(--line)', padding: '20px 0' }">
                 <div class="mono" :style="{ fontSize: '11px', color: 'var(--fg-3)', textTransform: 'uppercase', letterSpacing: '.14em', marginBottom: '6px' }">{{ row[0] }}</div>
                 <div :style="{ fontSize: '24px', fontWeight: 600, letterSpacing: '-0.01em' }">{{ row[1] }}</div>
