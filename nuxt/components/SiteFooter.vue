@@ -1,26 +1,43 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+type FooterLink = { label: string; to: string; external?: boolean }
+const groups: { h: string; items: FooterLink[] }[] = [
+  {
+    h: 'Studio',
+    items: [
+      { label: 'Work', to: '/work' },
+      { label: 'Services', to: '/services' },
+      { label: 'Process', to: '/#process' },
+      { label: 'Packages', to: '/#packages' },
+    ],
+  },
+  {
+    h: 'Connect',
+    items: [
+      { label: 'LinkedIn', to: 'https://www.linkedin.com/', external: true },
+      { label: 'Email', to: 'mailto:hello@studio-northa.co.uk', external: true },
+    ],
+  },
+]
+</script>
 
 <template>
   <footer :style="{ borderTop: '1px solid var(--line)', padding: '64px 0 32px', background: 'var(--bg-2)' }">
     <div class="container">
-      <div class="r-cols-footer" :style="{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr 1fr', gap: '48px', marginBottom: '64px' }">
+      <div class="r-cols-footer" :style="{ display: 'grid', gridTemplateColumns: '1.6fr 1fr 1fr', gap: '64px', marginBottom: '64px' }">
         <div>
           <div :style="{ fontFamily: `'Press Start 2P', monospace`, fontSize: '28px', letterSpacing: 0, marginBottom: '20px' }">
             <span :style="{ color: 'var(--accent)' }">Northa</span> /
           </div>
           <p :style="{ fontSize: '14px', color: 'var(--fg-2)', lineHeight: 1.55, maxWidth: '36ch' }">
-            Three-person digital brand studio operating from the North East, UK. Currently booking Q3/Q4 2026.
+            Digital brand studio operating from the North East, UK. Currently booking Q3/Q4 2026.
           </p>
         </div>
-        <div v-for="g in [
-          { h: 'Studio', items: ['Work', 'Services', 'Process', 'Pricing'] },
-          { h: 'Connect', items: ['Instagram', 'LinkedIn', 'Are.na', 'Email'] },
-          { h: 'Legal', items: ['Privacy', 'Terms', 'Cookies', 'Imprint'] },
-        ]" :key="g.h">
+        <div v-for="g in groups" :key="g.h">
           <div class="mono" :style="{ fontSize: '11px', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '.16em', marginBottom: '16px' }">{{ g.h }}</div>
           <ul :style="{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }">
-            <li v-for="i in g.items" :key="i">
-              <a href="#" data-hov :style="{ color: 'var(--fg-2)', fontSize: '14px' }">{{ i }}</a>
+            <li v-for="i in g.items" :key="i.label">
+              <a v-if="i.external" :href="i.to" data-hov target="_blank" rel="noopener" :style="{ color: 'var(--fg-2)', fontSize: '14px' }">{{ i.label }}</a>
+              <NuxtLink v-else :to="i.to" data-hov :style="{ color: 'var(--fg-2)', fontSize: '14px' }">{{ i.label }}</NuxtLink>
             </li>
           </ul>
         </div>

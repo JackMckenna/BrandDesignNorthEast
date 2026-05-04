@@ -30,7 +30,7 @@ export const WORKS: Work[] = [
   {
     id: 'ivy-casino',
     client: 'Ivy Casino',
-    tag: 'Web Design + Dev',
+    tag: 'Web Design + Website Development',
     year: 2026,
     summary: 'Slot-first casino brand and front-end build, with a custom lobby, search, and onboarding flow.',
     stripes: ['#2d8a5a', '#0a1a14', '#f0e8c8'],

@@ -29,9 +29,9 @@ const items = computed(() => props.limit ? WORKS.slice(0, props.limit) : WORKS)
             display: 'block', border: '1px solid var(--line)', background: 'var(--bg)',
             position: 'relative', transition: 'border-color .15s', color: 'inherit',
           }">
-          <div :style="{ aspectRatio: '4/3', position: 'relative', overflow: 'hidden', background: 'var(--bg-2)' }">
+          <div :style="{ aspectRatio: '4/3', position: 'relative', overflow: 'hidden', padding: w.image ? '16px' : '0' }">
             <img v-if="w.image" :src="withBase(w.image)" :alt="w.client" loading="lazy"
-              :style="{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }" />
+              :style="{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }" />
             <template v-else>
               <div :style="{ position: 'absolute', inset: 0, display: 'grid', gridTemplateRows: '1fr 1fr 1fr' }">
                 <div v-for="(c, j) in w.stripes" :key="j" :style="{

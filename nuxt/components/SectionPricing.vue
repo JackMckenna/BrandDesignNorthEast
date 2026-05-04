@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const tiers = [
-  { name: 'Launch', price: '4', sub: 'weeks', desc: 'Brand-new founders who need to get up and running.', bullets: ['One-page or 5-page site', 'Logo + 2 brand colors', '30 days social setup', 'Hosting handover'], maintain: 'Ongoing maintenance from £120/mo', cta: 'Start small', featured: false },
-  { name: 'Studio', price: '6', sub: 'weeks', desc: 'Most engagements land here. The full three-discipline build.', bullets: ['Multi-page custom site', 'Full identity system', '90-day social runway', 'Content shoot day', 'CMS + analytics'], maintain: 'Ongoing maintenance from £200/mo', cta: 'Start a project', featured: true },
-  { name: 'Deluxe', price: '8', sub: 'weeks', desc: 'The flagship engagement — every discipline, every asset, every detail.', bullets: ['Everything in Studio', 'Bespoke illustration / motion', 'Extended content shoot (3 days)', 'Launch campaign — paid + organic', 'Priority post-launch support'], maintain: 'Ongoing maintenance from £300/mo', cta: 'Talk flagship', featured: false },
+  { name: 'Launch', price: '4', sub: 'weeks', desc: 'Brand-new founders who need to get up and running.', bullets: ['One-page or 5-page site', 'Logo + 2 brand colors', '30 days social setup', 'Hosting handover'], maintain: 'Ongoing maintenance available', cta: 'Start small', featured: false },
+  { name: 'Studio', price: '6', sub: 'weeks', desc: 'Most engagements land here. The full three-discipline build.', bullets: ['Multi-page custom site', 'Full identity system', '90-day social runway', 'Content shoot day', 'CMS + analytics'], maintain: 'Ongoing maintenance available', cta: 'Start a project', featured: true },
+  { name: 'Deluxe', price: '8', sub: 'weeks', desc: 'The flagship engagement — every discipline, every asset, every detail.', bullets: ['Everything in Studio', 'Bespoke illustration / motion', 'Extended content shoot (3 days)', 'Launch campaign — paid + organic', 'Priority post-launch support'], maintain: 'Ongoing maintenance available', cta: 'Talk flagship', featured: false },
 ]
 </script>
 

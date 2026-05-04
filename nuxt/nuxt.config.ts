@@ -14,7 +14,7 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Three-person digital brand studio operating from the North East, UK. Web, identity, and social — done in-house.' },
+        { name: 'description', content: 'Studio Northa — digital brand studio operating from the North East, UK. Web, identity, and social — done in-house.' },
       ],
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },

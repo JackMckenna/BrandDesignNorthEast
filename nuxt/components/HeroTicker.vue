@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const items = ['WEB DEVELOPMENT', 'BRAND IDENTITY', 'GRAPHIC DESIGN', 'SOCIAL MEDIA', 'CONTENT', 'SEO', 'LOGO DESIGN', 'WEB DESIGN']
+const items = ['WEBSITE DEVELOPMENT', 'BRAND IDENTITY', 'GRAPHIC DESIGN', 'SOCIAL MEDIA', 'CONTENT', 'SEO', 'LOGO DESIGN', 'WEB DESIGN']
 const list = [...items, ...items, ...items]
 </script>
 

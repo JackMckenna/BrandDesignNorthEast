@@ -72,7 +72,7 @@ onBeforeUnmount(() => cleanup && cleanup())
     <canvas ref="canvas" :style="{ position: 'absolute', inset: 0, width: '100%', height: '100%' }"></canvas>
     <div class="container hero-inner" :style="{ paddingTop: '140px', paddingBottom: '140px', position: 'relative', zIndex: 2 }">
       <div :style="{ maxWidth: '920px' }">
-        <div :style="{ display: 'flex', gap: '12px', alignItems: 'center', marginBottom: '32px' }">
+        <div class="cursor-hint" :style="{ display: 'flex', gap: '12px', alignItems: 'center', marginBottom: '32px' }">
           <span :style="{ width: '8px', height: '8px', background: 'var(--accent)' }"></span>
           <span class="mono" :style="{ fontSize: '11px', letterSpacing: '.2em', textTransform: 'uppercase', color: 'var(--fg-2)' }">
             Move your cursor — the grid responds.

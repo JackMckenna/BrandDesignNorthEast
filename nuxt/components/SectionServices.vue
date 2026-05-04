@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const services = [
-  { code: '01', title: 'Web Development', body: 'Hand-built sites in modern stacks. Fast, accessible, owned outright.', tools: ['Nuxt', 'Astro', 'Webflow'] },
+  { code: '01', title: 'Website Development', body: 'Hand-built sites in modern stacks. Fast, accessible, owned outright.', tools: ['Nuxt', 'Astro', 'Webflow'] },
   { code: '02', title: 'Web Design', body: 'Layouts that pull their weight — every grid, weight, and pixel doing a job.', tools: ['Figma', 'Framer'] },
   { code: '03', title: 'Brand Identity', body: 'Logos, marks, type systems, and the rules that hold them together.', tools: ['Identity', 'Guidelines'] },
   { code: '04', title: 'Graphic Design', body: 'Print, packaging, decks, ads — the unsexy work that compounds.', tools: ['Print', 'Editorial'] },
@@ -17,7 +17,7 @@ const services = [
       <div class="reveal">
         <div class="section-eyebrow"><span class="blk"></span><span>01 / Services</span></div>
         <h2 class="section-title">Eight things,<br />done in-house.</h2>
-        <p class="section-sub">No reselling, no white-label middlemen. The three of us cover what most brands actually need — and we bring in trusted collaborators when it goes beyond that.</p>
+        <p class="section-sub">No reselling, no white-label middlemen. We cover what most brands actually need — and we bring in trusted collaborators when it goes beyond that.</p>
       </div>
       <div class="r-cols-4" :style="{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderTop: '1px solid var(--line)', borderLeft: '1px solid var(--line)' }">
         <div v-for="s in services" :key="s.code" class="reveal" data-hov

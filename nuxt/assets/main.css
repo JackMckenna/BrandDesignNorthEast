@@ -207,4 +207,5 @@ html.js-reveal .reveal.in { opacity: 1; transform: translateY(0); }
 @media (hover: none) and (pointer: coarse) {
   .px-cursor { display: none !important; }
   body { cursor: auto; }
+  .cursor-hint { display: none !important; }
 }

@@ -14,9 +14,9 @@ const withBase = (p?: string) => (p ? `${config.app.baseURL.replace(/\/$/, '')}/
     <SiteNav />
     <main :style="{ paddingTop: '72px' }">
       <section :style="{ borderBottom: '1px solid var(--line)' }">
-        <div :style="{ aspectRatio: '16 / 6', position: 'relative', overflow: 'hidden', background: 'var(--bg-2)' }">
+        <div :style="{ aspectRatio: work.image ? '16 / 9' : '16 / 6', position: 'relative', overflow: 'hidden', padding: work.image ? '32px' : '0' }">
           <img v-if="work.image" :src="withBase(work.image)" :alt="work.client"
-            :style="{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }" />
+            :style="{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }" />
           <div v-else :style="{ position: 'absolute', inset: 0, display: 'grid', gridTemplateColumns: '1fr 1fr 1fr' }">
             <div v-for="(c, j) in work.stripes" :key="j" :style="{
               background: c,

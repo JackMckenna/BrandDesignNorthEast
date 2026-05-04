@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const steps = [
-  { n: '01', t: 'Discovery', b: 'A 60-min unpaid call. We come back with a one-page diagnosis: what to do, what to skip.' },
-  { n: '02', t: 'Scoping', b: 'Fixed-fee proposal. Phased deliverables. No retainer arm-twisting. Sign and start.' },
-  { n: '03', t: 'Build', b: 'Weekly demos in Loom. You see real progress, not status reports. Three of us, no handoffs.' },
-  { n: '04', t: 'Launch + carry', b: 'We hand over real working systems and stay on for 30 days of free support. Optional retainer after.' },
+  { n: '01', t: 'Discovery', b: 'A unpaid call. We come back with a one-page diagnosis: what to do, what to skip and what is best for your company.' },
+  { n: '02', t: 'Scoping', b: 'Fixed-fee proposal. Phased deliverables. Clear timeline. No retainer arm-twisting. Sign and start.' },
+  { n: '03', t: 'Build', b: 'Weekly demos meetings. You see real progress, not status reports. Allowing you to have full control.' },
+  { n: '04', t: 'Launch + carry', b: 'We hand over real working systems and stay on for full maintenance and support for your brands needs, for as long as you needs.' },
 ]
 </script>
 
@@ -13,7 +13,7 @@ const steps = [
       <div class="reveal">
         <div class="section-eyebrow"><span class="blk"></span><span>03 / Process</span></div>
         <h2 class="section-title">A four-step loop.</h2>
-        <p class="section-sub">We avoid the 12-week discovery pageant. Most engagements run six to ten weeks, end-to-end.</p>
+        <p class="section-sub">We avoid the 12-week discovery pageant. Most engagements run four to eight weeks, end-to-end.</p>
       </div>
       <div class="r-cols-4" :style="{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderLeft: '1px solid var(--line)', borderTop: '1px solid var(--line)' }">
         <div v-for="(s, i) in steps" :key="s.n" class="reveal tile-tall" :style="{
