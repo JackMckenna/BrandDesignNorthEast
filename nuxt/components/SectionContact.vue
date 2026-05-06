@@ -4,6 +4,8 @@ import { reactive, ref } from 'vue'
 const props = defineProps<{ embedded?: boolean }>()
 
 const CONTACT_EMAIL = 'hello@studio-northa.co.uk'
+const CONTACT_PHONE_DISPLAY = '07961 011 032'
+const CONTACT_PHONE_TEL = '+447961011032'
 const FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`
 
 const form = reactive({ name: '', email: '', company: '', package: 'Studio', services: [] as string[], message: '' })
@@ -87,6 +89,10 @@ const reset = () => {
             <div :style="{ display: 'flex', gap: '12px', alignItems: 'center' }">
               <span :style="{ width: '8px', height: '8px', background: 'var(--accent)' }"></span>
               <a :href="`mailto:${CONTACT_EMAIL}`" data-hov class="mono" :style="{ textTransform: 'uppercase', letterSpacing: '.12em', fontSize: '11px', color: 'inherit' }">{{ CONTACT_EMAIL }}</a>
+            </div>
+            <div :style="{ display: 'flex', gap: '12px', alignItems: 'center' }">
+              <span :style="{ width: '8px', height: '8px', background: 'var(--accent)' }"></span>
+              <a :href="`tel:${CONTACT_PHONE_TEL}`" data-hov class="mono" :style="{ textTransform: 'uppercase', letterSpacing: '.12em', fontSize: '11px', color: 'inherit' }">{{ CONTACT_PHONE_DISPLAY }}</a>
             </div>
             <div :style="{ display: 'flex', gap: '12px', alignItems: 'center' }">
               <span :style="{ width: '8px', height: '8px', background: 'var(--accent)' }"></span>
