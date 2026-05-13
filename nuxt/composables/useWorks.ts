@@ -8,12 +8,26 @@ export type Work = {
   stripes: [string, string, string];
   url?: string;
   image?: string;
+  logo?: string;
   engagement?: string;
   deliverables?: string;
   outcome?: string;
 };
 
 export const WORKS: Work[] = [
+  {
+    id: 'menstrual-rage',
+    client: 'Menstrual Rage',
+    tag: 'Brand + Logo + Graphic + Content',
+    year: 2026,
+    summary: 'Identity rework, new logo, and a content system for an unflinching new-work theatre company.',
+    stripes: ['#c8001e', '#080810', '#f0e8e8'],
+    image: '/works/menstrualrage.png',
+    logo: '/works/MenstrualRageLogoRevamp.avif',
+    engagement: '5 weeks',
+    deliverables: '16 assets',
+    outcome: '+62% social reach',
+  },
   {
     id: 'rose-casino',
     client: 'Rose Casino',

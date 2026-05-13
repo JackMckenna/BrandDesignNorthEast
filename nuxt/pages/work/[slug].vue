@@ -17,6 +17,8 @@ const withBase = (p?: string) => (p ? `${config.app.baseURL.replace(/\/$/, '')}/
         <div :style="{ aspectRatio: work.image ? '16 / 9' : '16 / 6', position: 'relative', overflow: 'hidden', padding: work.image ? '32px' : '0' }">
           <img v-if="work.image" :src="withBase(work.image)" :alt="work.client"
             :style="{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }" />
+          <img v-if="work.image && work.logo" :src="withBase(work.logo)" :alt="`${work.client} logo`"
+            :style="{ position: 'absolute', top: '16px', left: '16px', width: '12%', maxWidth: '160px', aspectRatio: '1', objectFit: 'contain', zIndex: 2, filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.4))' }" />
           <div v-else :style="{ position: 'absolute', inset: 0, display: 'grid', gridTemplateColumns: '1fr 1fr 1fr' }">
             <div v-for="(c, j) in work.stripes" :key="j" :style="{
               background: c,

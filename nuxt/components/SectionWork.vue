@@ -23,15 +23,19 @@ const items = computed(() => props.limit ? WORKS.slice(0, props.limit) : WORKS)
 
       <div class="r-cols-3" :style="{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }">
         <NuxtLink v-for="(w, i) in items" :key="w.id" :to="`/work/${w.id}`" data-hov class="reveal"
-          @mouseenter="(e) => ((e.currentTarget as HTMLElement).style.borderColor = 'var(--accent)')"
-          @mouseleave="(e) => ((e.currentTarget as HTMLElement).style.borderColor = 'var(--line)')"
+          @mouseenter="(e: MouseEvent) => ((e.currentTarget as HTMLElement).style.borderColor = 'var(--accent)')"
+          @mouseleave="(e: MouseEvent) => ((e.currentTarget as HTMLElement).style.borderColor = 'var(--line)')"
           :style="{
             display: 'block', border: '1px solid var(--line)', background: 'var(--bg)',
             position: 'relative', transition: 'border-color .15s', color: 'inherit',
           }">
           <div :style="{ aspectRatio: '4/3', position: 'relative', overflow: 'hidden', padding: w.image ? '16px' : '0' }">
-            <img v-if="w.image" :src="withBase(w.image)" :alt="w.client" loading="lazy"
-              :style="{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }" />
+            <template v-if="w.image">
+              <img :src="withBase(w.image)" :alt="w.client" loading="lazy"
+                :style="{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }" />
+              <img v-if="w.logo" :src="withBase(w.logo)" :alt="`${w.client} logo`" loading="lazy"
+                :style="{ position: 'absolute', top: '8px', left: '8px', width: '22%', maxWidth: '90px', aspectRatio: '1', objectFit: 'contain', zIndex: 2, filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.35))' }" />
+            </template>
             <template v-else>
               <div :style="{ position: 'absolute', inset: 0, display: 'grid', gridTemplateRows: '1fr 1fr 1fr' }">
                 <div v-for="(c, j) in w.stripes" :key="j" :style="{

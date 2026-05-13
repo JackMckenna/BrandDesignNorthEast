@@ -2,6 +2,12 @@
 type Quote = { q: string; who: string; role: string; link?: string }
 const quotes: Quote[] = [
   {
+    q: 'They gave me a brand strong enough to start a company from. Bold, considered, and exactly the tone I\'d been struggling to put into words — the kind of identity I could actually build a business around.',
+    who: 'Hannah H.',
+    role: 'Founder, Menstrual Rage',
+    link: '/work/menstrual-rage',
+  },
+  {
     q: 'They listened to our exact needs and let us stay fully involved at every step. The production was seamless no surprises, no friction.',
     who: 'Liam',
     role: 'Bet442',
